@@ -1,0 +1,127 @@
+/* Definición de la fuente personalizada AngryBird */
+@font-face {
+  font-family: AngryBird;
+  src: url(Fuente/angrybirds-regular.ttf);
+}
+
+/* Estilos para el cuerpo del documento */
+body {
+  font-family: AngryBird; 
+  display: flex;
+  justify-content: center; /* Centra horizontalmente el contenido en el cuerpo */
+  align-items: center; /* Centra verticalmente el contenido en el cuerpo */
+  height: 100vh; /* Ocupa el 100% del alto de la ventana del navegador */
+  margin: 0; /* Elimina los márgenes predeterminados del cuerpo */
+  background-color: #f0f0f0; 
+}
+
+/* Estilos para el contenedor de las imágenes de las tuercas */
+.tuerca-container {
+  position: relative;
+  width: 100px; /* Ajusta el tamaño del contenedor según el tamaño de las tuercas */
+  height: 100px;
+  left: 40%;
+}
+
+/* Estilos para la imagen de la primera tuerca */
+.tuerca1 {
+  width: 55px;
+  height: 55px;
+  animation: rotate-tuerca;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  display: inline-block;
+}
+
+/* Estilos para la imagen de la segunda tuerca */
+.tuerca2 {
+  width: 40px;
+  height: 40px;
+  margin-left: 25px;
+  animation: rotate-tuerca;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  display: inline-block;
+}
+
+/* Animación para rotar las tuercas */
+@keyframes rotate-tuerca {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Estilos para los párrafos */
+p {
+  font-size: 50px; /* Tamaño de fuente para los párrafos */
+}
+
+/* Estilos para el título h3 */
+h3 {
+  position: absolute; /* Agregamos posición absoluta para que podamos centrar el texto */
+  top: 30%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); /* Centramos el texto utilizando transform */
+}
+
+/* Estilos para el contenedor de texto y botón de Angry Bird */
+.angry-bird-text {
+  width: 100%;
+  height: 100%;
+  font-size: 60px; 
+  text-align: center; 
+  color: #ffffff; /* Color de texto para el texto de Angry Bird */
+  background-color: black; 
+  animation: ver 4s forwards; /* Animación para mostrar el contenedor de texto */
+  display: none; /* Ocultar el contenedor de texto inicialmente */
+}
+
+/* Animación para mostrar el contenedor de texto */
+@keyframes ver {
+  0% { opacity: 0; transform: translateY(0); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilos para los enlaces */
+a {
+  text-decoration: none; /* Eliminar subrayado de los enlaces */
+}
+
+/* Estilos para el botón */
+button {
+  font-family: AngryBird; /* Utiliza la fuente personalizada AngryBird para el botón */
+  border: 0;
+  background-image: linear-gradient(150deg, #fc1708, #fc4b32, #fd7f5c); /* Imagen de fondo con gradiente */
+  border-radius: 8px;
+  color: #fff; /* Color de texto para el botón */
+  display: flex;
+  font-size: 20px; /* Tamaño de fuente para el texto del botón */
+  padding: 4px;
+  cursor: pointer;
+  transition: .3s;
+  margin-left: 44%; /* Ajusta el margen izquierdo para centrar horizontalmente el botón */
+  margin-top: 350px; /* Ajusta el margen superior para posicionar el botón */
+}
+
+/* Estilos para el span del botón */
+button span {
+  background-color: #111;
+  padding: 16px 24px; /* Tamaño del padding alrededor del span */
+  border-radius: 6px;
+  transition: .3s;
+}
+
+/* Estilos para el span del botón al pasar el mouse sobre él */
+button:hover span {
+  background: none;
+}
+
+/* Estilos para el span del botón al hacer clic en él */
+button:active {
+  transform: scale(0.9); /* Reduce el tamaño del botón al hacer clic */
+}

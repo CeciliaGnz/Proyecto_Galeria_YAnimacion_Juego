@@ -1,0 +1,414 @@
+/* Estilos de la fuente personalizada AngryBird */
+@font-face {
+  font-family: AngryBird;
+  src: url(Fuente/angrybirds-regular.ttf);
+}
+
+/* Estilos para el botón de Inicio */
+button {
+  font-family: AngryBird;
+  position: absolute;
+  border: 0;
+  background-image: linear-gradient(150deg, #fc1708, #fc4b32, #fd7f5c);
+  border-radius: 8px;
+  color: #000000;
+  display: flex;
+  font-size: 20px;
+  padding: 4px;
+  cursor: pointer;
+  transition: .3s;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+button span {
+  background-color: #ffffff;
+  padding: 16px 24px;
+  border-radius: 6px;
+  transition: .3s;
+}
+
+button:hover span {
+  background: none;
+}
+
+button:active {
+  transform: scale(0.9);
+}
+
+/* Estilos para el fondo de la imagen del juego */
+.background-image {
+  background-image: url("Multimedia/fondo\ juego.jpg"); /* Reemplaza 'ruta' con la ubicación real de la imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: fixed; /* Para que la imagen de fondo se mantenga fija mientras se desplaza la página */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Estilos para el contenedor principal de la animación */
+.logo-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: bird 4s forwards;
+  display: flex;
+  margin-top: 430px;
+}
+
+/* Estilos para el pájaro */
+.logo-bird {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background-color: rgb(0, 0, 0);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid black;
+}
+
+/* Estilos para la cara del pájaro */
+.face {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: red;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Estilos para las cejas del pájaro */
+.ceja {
+  width: 30px;
+  height: 10px;
+  background-color: black;
+  position: absolute;
+  top: 24%;
+}
+
+.ceja.izquierda {
+  left: 32%;
+  transform: rotate(15deg) translateY(5px);
+}
+
+.ceja.derecha {
+  right: 29%;
+  transform: rotate(-15deg) translateY(5px);
+}
+
+/* Estilos para las plumas del pájaro */
+.pelito {
+  width: 23px;
+  height: 10px;
+  background-color: rgb(255, 0, 0);
+  position: absolute;
+  top: 1%;
+  border-radius: 50%;
+}
+
+.pelito.izquierdo {
+  left: 35%;
+  transform: rotate(60deg);
+}
+
+.pelito.derecho {
+  right: 40%;
+  transform: rotate(120deg);
+}
+
+/* Estilos para la barriga del pájaro */
+.belly {
+  width: 85px;
+  height: 45px;
+  background-color: rgb(255, 220, 220);
+  position: absolute;
+  top: 61%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+}
+
+/* Estilos para los ojos del pájaro */
+.eyes {
+  width: 120px;
+  height: 60px;
+  position: absolute;
+  top: 40%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+}
+
+.eye {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  border: 3px solid black;
+}
+
+.eye:first-child {
+  top: 30%;
+  left: 30%;
+}
+
+.eye:last-child {
+  top: 30%;
+  left: 50%;
+}
+
+.eye:before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background-color: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Estilos para el pico del pájaro */
+.beak {
+  width: 55px;
+  height: 15px;
+  background-color: orange;
+  position: absolute;
+  top: 45%;
+  left: 55%;
+  transform: translate(-50%, 20%);
+  clip-path: polygon(0% 100%, 40% 0%, 100% 100%);
+  border-bottom: 3px solid black;
+}
+
+.beak.girado {
+  transform: translate(-50%, 20%) rotate(180deg);
+  top: 56%;
+  left: 50%;
+  width: 43px;
+  height: 15px;
+}
+
+/* Animaciones */
+
+/* Animación para el aparecimiento del pájaro */
+@keyframes bird {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Animación de lanzamiento del pájaro */
+@keyframes launchBird {
+  from {
+    transform: rotate(0deg) translate(0px);
+  }
+  to {
+    transform: rotate(180deg) translate(-640px);
+  }
+}
+
+/* Animación para mover el pájaro hacia la izquierda y rotarlo */
+@keyframes moveLeftAndRotate {
+  from {
+    transform: translate(640px) rotate(180deg);
+  }
+  to {
+    transform: translate(-600px) rotate(0deg);
+  }
+}
+
+/* Aplicar animación de lanzamiento al pájaro */
+.logo-bird {
+  animation: launchBird 5s ease-in-out forwards;
+  animation-delay: 4s;
+}
+
+/* Estilos finales del pájaro al terminar la animación de lanzamiento */
+.logo-bird.finished {
+  animation: moveLeftAndRotate 4s ease-in-out forwards;
+}
+
+/* Animación para mover los ojos del pájaro */
+.eye:before {
+  animation: moveEyes 3s infinite;
+}
+
+/* Animación para mover los ojos del pájaro hacia la izquierda */
+@keyframes moveEyes {
+  0%, 100% {
+    transform: translate(0); /* Posición inicial (no se mueve) */
+  }
+  50% {
+    transform: translate(-10px); /* Posición hacia la derecha */
+  }
+}
+
+/* Estilos para el cerdo */
+.logo-cerdo {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background-color: rgb(4, 228, 4);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 10px solid black;
+  margin-left: 600px; /* Ajusta el margen izquierdo para desplazar el cerdo hacia la derecha */
+}
+
+/* Estilos para las orejas del cerdo */
+.ear-cerdo {
+  width: 30px;
+  height: 30px;
+  background-color: rgb(4, 228, 4);
+  position: absolute;
+  bottom: 85%;
+  border-radius: 50%;
+  border-color: black;
+  border: 10px;
+}
+
+.ear-cerdo.left {
+  left: 15%;
+  transform: rotate(-25deg);
+}
+
+.ear-cerdo.right {
+  right: 15%;
+  transform: rotate(25deg);
+}
+
+/* Estilos para los ojos del cerdo */
+.eyescerdo {
+  width: 120px;
+  height: 60px;
+  position: absolute;
+  top: 40%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+}
+
+.eye-cerdo {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  border: 3px solid rgb(3, 180, 3);
+}
+
+.eye-cerdo:first-child {
+  top: 30%;
+  left: 5%;
+}
+
+.eye-cerdo:last-child {
+  top: 30%;
+  left: 70%;
+}
+
+.eye-cerdo:before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background-color: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Estilos para la nariz del cerdo */
+.nose {
+  width: 55px;
+  height: 45px;
+  background-color: rgb(70, 248, 70);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 3px solid rgb(0, 187, 9);
+}
+
+.nose:before {
+  content: "";
+  width: 8px;
+  height: 13px;
+  background-color: rgb(16, 88, 2);
+  border-radius: 50%;
+  position: absolute;
+  top: 30%;
+  left: 25%;
+}
+
+.nose:after {
+  content: "";
+  width: 8px;
+  height: 15px;
+  background-color: rgb(16, 88, 2);
+  border-radius: 50%;
+  position: absolute;
+  top: 30%;
+  left: 60%;
+}
+
+/* Estilos para la boca del cerdo */
+.mouth {
+  width: 35px;
+  height: 25px;
+  background-color: rgb(70, 248, 70);
+  border-radius: 50%;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 3px solid rgb(0, 187, 9);
+  z-index: 0; /* Asegura que la boca aparezca detrás de los ojos y la nariz */
+}
+
+/* Animación para mover el cerdo hacia la derecha y rotarlo */
+@keyframes moveRightAndRotate {
+  from {
+    transform: translateX(0) rotate(0deg);
+  }
+  to {
+    transform: translateX(370px) rotate(360deg);
+  }
+}
+
+/* Desactivar la animación del cerdo inicialmente */
+.logo-cerdo {
+  animation: none;
+}
+
+/* Animación para mover los ojos del cerdo */
+.eye-cerdo:before {
+  animation: moveEyes 2s infinite;
+}
+
+/* Animación para abrir y cerrar la boca del cerdo */
+@keyframes openMouth {
+  0%, 100% {
+    height: 25px; /* Altura de la boca cerrada */
+  }
+  50% {
+    height: 35px; /* Altura de la boca abierta */
+  }
+}
+
+.mouth {
+  animation: openMouth 2s infinite;
+}

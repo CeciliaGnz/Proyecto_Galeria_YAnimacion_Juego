@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Animación Angry Bird</title>
+
+    <!-- Enlace a la fuente "Angry Birds" en Dafont -->
+    <link href="https://www.dafont.com/es/angrybirds.font" rel="stylesheet">
+
+    <!-- Enlace a la hoja de estilos personalizada -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <!-- Contenedor principal para la animación -->
+    <div class="logo-container">
+        <!-- Contenedor del botón de inicio -->
+        <div class="background-image">
+            <a href="index.html">
+                <button>
+                    <span>Inicio</span>
+                </button>
+            </a>
+        </div>
+
+        <!-- Inicio de la animación del pájaro -->
+        <div class="logo logo-bird">
+            <!-- Partes del pájaro: cabeza, barriga, cejas, plumas, ojos y pico -->
+            <div class="face"></div>
+            <div class="belly"></div>
+            <div class="ceja izquierda"></div>
+            <div class="ceja derecha"></div>
+            <div class="pelito izquierdo"></div>
+            <div class="pelito derecho"></div>
+            <div class="eyes">
+                <div class="eye"></div>
+                <div class="eye"></div>
+            </div>
+            <div class="beak"></div>
+            <div class="beak girado"></div>
+        </div>
+        <!-- Fin de la animación del pájaro -->
+
+        <!-- Inicio de la animación del cerdo -->
+        <div class="logo logo-cerdo">
+            <!-- Partes del cerdo: orejas, boca, ojos y nariz -->
+            <div class="ear-cerdo left"></div>
+            <div class="ear-cerdo right"></div>
+            <div class="mouth"></div>
+            <div class="eyescerdo">
+                <div class="eye-cerdo"></div>
+                <div class="eye-cerdo"></div>
+            </div>
+            <div class="nose"></div>
+        </div>
+        <!-- Fin de la animación del cerdo -->
+
+        <!-- Reproducir música de fondo -->
+        <audio src="/Multimedia/angry-birds-music.mp3" autoplay></audio>
+
+        <!-- Reproducir efecto de sonido al lanzamiento -->
+        <audio id="audio" src="/Multimedia/angry-birds-lanzamiento.mp3"></audio>
+    </div>
+
+    <!-- Script para controlar la animación y efecto de sonido -->
+    <script>
+        // Obtener referencias a los elementos de las animaciones
+        const logoBird = document.querySelector('.logo-bird');
+        const logoCerdo = document.querySelector('.logo-cerdo');
+        const audio = document.getElementById('audio');
+
+        // Escuchar el evento de inicio de la animación del pájaro
+        logoBird.addEventListener('animationstart', () => {
+            audio.play(); // Reproducir el audio al iniciar la animación del pájaro (fly bird)
+        });
+
+        // Escuchar el evento de finalización de la animación del pájaro
+        logoBird.addEventListener('animationend', () => {
+            logoBird.classList.add('finished'); // Agregar clase para estilos finales del pájaro
+            logoCerdo.style.animation = 'moveRightAndRotate 2s ease-in-out forwards'; // Animar el cerdo hacia la derecha y rotarlo
+        });
+    </script>
+</body>
+
+</html>

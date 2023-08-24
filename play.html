@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Enlace a la fuente personalizada AngryBird -->
+    <link href="https://www.dafont.com/es/angrybirds.font" rel="stylesheet">
+    <!-- Título de la página -->
+    <title>Juego</title>
+    <!-- Enlace al archivo de estilos playstyle.css -->
+    <link rel="stylesheet" type="text/css" href="playstyle.css">
+</head>
+<body>
+
+  <!-- Contenedor de la animación de carga -->
+  <div class="loading-container">
+    <!-- Texto de carga -->
+    <p class="loading-text">Cargando juego ...</p>
+    <!-- Contenedor de las imágenes de las tuercas -->
+    <div class="tuerca-container">
+      <img src="Multimedia/tuerca1.png" class="tuerca1">
+      <img src="Multimedia/tuerca2.png" class="tuerca2">
+    </div>
+  </div>
+
+  <!-- Contenedor del texto y botón de Angry Bird -->
+  <div class="angry-bird-text">
+    <!-- Título "Angry Bird" -->
+    <h3>Angry Bird</h3>
+    <!-- Enlace al archivo "angrybird.html" que inicia el juego -->
+    <a href="angrybird.html">
+      <!-- Botón "Iniciar juego" -->
+      <button>
+        <!-- Texto del botón -->
+        <span>Iniciar juego</span>
+      </button>
+    </a>
+  </div>
+
+  <!-- Script para mostrar la animación de carga durante 3 segundos y luego mostrar el texto de Angry Bird -->
+  <script>
+    // Cuando la página haya cargado, muestra la animación de carga durante 3 segundos y luego muestra el texto de Angry Bird.
+    window.onload = function() {
+      // Espera 3 segundos antes de mostrar el texto de Angry Bird.
+      setTimeout(function() {
+        // Oculta el contenedor de la animación de carga.
+        document.querySelector('.loading-container').style.display = 'none';
+        // Muestra el contenedor del texto y botón de Angry Bird.
+        document.querySelector('.angry-bird-text').style.display = 'block';
+      }, 4000);
+    };
+  </script>
+</body>
+</html>
